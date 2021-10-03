@@ -12,19 +12,13 @@ import org.junit.jupiter.api.Test;
 class HitterTest {
     private Hitter hitter;
 
-    @BeforeEach
-    public void beforeEach() {
-        hitter = Hitter.getHitter();
-    }
-
-    @RepeatedTest(10)
     @Test
     public void 숫자_길이_확인() {
         // given
         // when
-        hitter.generateStats();
+        List<Integer> hitter = Hitter.generateHitter();
         // then
-        assertThat(hitter.getStats().size()).isEqualTo(3);
+        assertThat(hitter.size()).isEqualTo(3);
     }
 
     @RepeatedTest(10)
@@ -32,9 +26,9 @@ class HitterTest {
     public void 숫자_중복_생성_확인() {
         // given
         // when
-        hitter.generateStats();
+        List<Integer> hitter = Hitter.generateHitter();
         // then
-        assertThat(hasDuplicateNumber(hitter.getStats())).isEqualTo(false);
+        assertThat(hasDuplicateNumber(hitter)).isEqualTo(false);
     }
 
     private boolean hasDuplicateNumber(List<Integer> stats) {
