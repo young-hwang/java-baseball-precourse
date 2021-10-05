@@ -9,8 +9,10 @@ public class Judgment {
 
     public JudgmentResult runJudge(List<Integer> hitter, List<Integer> pitching) {
         JudgmentResult judgementResult = new JudgmentResult();
-        judgementResult.setStrike(strikeCount(hitter, pitching));
+        int strike = strikeCount(hitter, pitching);
+        judgementResult.setStrike(strike);
         judgementResult.setBall(ballCount(hitter, pitching));
+        judgementResult.setStatus(strike == Constants.MAX_STATS_LENGTH ? GameStatus.SUCCESS : GameStatus.RUNNING);
         return judgementResult;
     }
 

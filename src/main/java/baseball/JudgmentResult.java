@@ -3,6 +3,7 @@ package baseball;
 public class JudgmentResult {
     private int strike;
     private int ball;
+    private GameStatus status;
 
     public int getStrike() {
         return strike;
@@ -18,5 +19,13 @@ public class JudgmentResult {
 
     public void setBall(int ball) {
         this.ball = ball;
+    }
+
+    public GameStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(GameStatus status) {
+        this.status = status;
     }
 }
