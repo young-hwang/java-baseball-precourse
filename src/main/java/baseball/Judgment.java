@@ -2,6 +2,7 @@ package baseball;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Judgment {
     public Judgment() {
@@ -10,7 +11,7 @@ public class Judgment {
     public JudgmentResult runJudge(List<Integer> hitter, List<Integer> pitching) {
         JudgmentResult judgementResult = new JudgmentResult();
         int strike = strikeCount(hitter, pitching);
-        judgementResult.setStrike(strike);
+        judgementResult.setStrike(strikeCount(hitter, pitching));
         judgementResult.setBall(ballCount(hitter, pitching));
         judgementResult.setStatus(strike == Constants.MAX_STATS_LENGTH ? GameStatus.SUCCESS : GameStatus.RUNNING);
         return judgementResult;
